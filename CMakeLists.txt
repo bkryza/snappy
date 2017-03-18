@@ -48,6 +48,17 @@ configure_file(snappy-stubs-public.h.in
 
 add_library(snappy ${SRCS})
 
+install(TARGETS
+          snappy
+        ARCHIVE DESTINATION
+          lib)
+
+install(FILES
+          snappy.h snappy-sinksource.h
+          ${CMAKE_CURRENT_BINARY_DIR}/snappy-stubs-public.h snappy-c.h
+        DESTINATION
+          include/snappy)
+
 # ENABLE_TESTING()
 # find_package(GTest)
 # add_definitions(-DHAVE_GTEST)
